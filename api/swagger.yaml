@@ -1,0 +1,92 @@
+---
+swagger: "2.0"
+info:
+  description: "My swagger server for MySQL end points. Used across multiple \
+    projects of mine and will enable others to do the same. Checkout my website \
+    for more https://sawal.ca."
+  version: "1.0.0"
+  title: "Sawal API"
+  contact:
+    email: "victor@sawal.ca"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "api.sawal.ca"
+basePath: "/"
+tags:
+- name: "sawal"
+  description: "Everything about my projects"
+  externalDocs:
+    description: "Find out more about my projects"
+    url: "https://sawal.ca"
+schemes:
+- "https"
+paths:
+  /crypto/coins:
+    get:
+      tags:
+      - "Crypto"
+      summary: "Returns a list of coins by ID, scraped from coinmarketcap.com"
+      description: "Returns a map of ids to coins"
+      operationId: "coin_list"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            additionalProperties:
+              type: "integer"
+              format: "int32"
+      x-swagger-router-controller: "Crypto"
+  /crypto/coin:
+    get:
+      tags:
+      - "Crypto"
+      summary: "Returns coin data for a coin symbol, scraped from coinmarketcap.com"
+      description: "Returns coin data for specific symbol"
+      operationId: "coin_data"
+      produces:
+      - "application/json"
+      parameters: 
+      - in: query
+        name: symbol
+        required: true
+        type: string
+        description: Symbol of the coin
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            additionalProperties:
+              type: "integer"
+              format: "int32"
+      x-swagger-router-controller: "Crypto"
+definitions:
+  Coin:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "int64"
+    xml:
+      name: "Coin"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about me"
+  url: "https://sawal.ca"
