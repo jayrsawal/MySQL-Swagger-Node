@@ -10,3 +10,7 @@ module.exports.coin_list = function getCoins (req, res, next) {
 module.exports.coin_data = function getCoinData (req, res, next) {
   Crypto.getCoinData(req.swagger.params, res, next);
 };
+
+module.exports.reddit_sentiment = function getRedditSentiment (req, res, next) {
+  Crypto.getRedditSentiment(req.swagger.params, res, next);
+};

@@ -16,6 +16,8 @@
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
     "mysql": "^2.15.0",
+    "nltk-stopwords": "^1.0.3",
+    "request": "^2.83.0",
     "swagger-tools": "0.10.1"
   }
 }
