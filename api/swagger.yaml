@@ -11,7 +11,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "api.sawal.ca"
+host: "localhost:8080"
 basePath: "/"
 tags:
 - name: "sawal"
@@ -20,8 +20,29 @@ tags:
     description: "Find out more about my projects"
     url: "https://sawal.ca"
 schemes:
-- "https"
+- "http"
 paths:
+  /helper/window_height:
+    get:
+      tags:
+      - "Helper"
+      summary: "Returns the height of a given url"
+      description: "IFrames do not allow CORS on client side, use api to get height"
+      operationId: "window_height"
+      produces:
+        - "application/json"
+      parameters: 
+      - in: query
+        name: url
+        required: true
+        type: string
+        description: URL of the window to measure height
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+      x-swagger-router-controller: "Helper"
   /crypto/coins:
     get:
       tags:

@@ -49,7 +49,7 @@ exports.getCoins = function(args, res, next) {
 exports.getCoinData = function(args, res, next) {
   /**
   * Returns list of coins by ID, scraped from coinmarketcap.com
-  *
+  *h
   * returns json
   **/
   var sql = "select c.* from coin c \

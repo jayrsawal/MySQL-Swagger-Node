@@ -8,6 +8,7 @@ var app = require('connect')();
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var serverPort = 8080;
+var cors = require("cors");
 
 // swaggerRouter configuration
 var options = {
@@ -36,6 +37,9 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerUi({
     swaggerUi: '/'
   }));
+
+  // set cors
+  app.use(cors());
 
   // Start the server
   http.createServer(app).listen(serverPort, function () {
