@@ -11,7 +11,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:8080"
+host: "api.sawal.ca"
 basePath: "/"
 tags:
 - name: "sawal"
@@ -20,7 +20,7 @@ tags:
     description: "Find out more about my projects"
     url: "https://sawal.ca"
 schemes:
-- "http"
+- "https"
 paths:
   /helper/tinyurl:
     get:
