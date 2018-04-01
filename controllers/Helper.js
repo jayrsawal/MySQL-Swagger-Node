@@ -3,6 +3,6 @@
 var url = require('url');
 var Helper = require('./HelperService');
 
-module.exports.window_height = function getWindowHeight (req, res, next) {
-	Helper.getWindowHeight(req.swagger.params, res, next);
+module.exports.tinyurl = function getTinyUrl (req, res, next) {
+	Helper.getTinyUrl(req.swagger.params, res, next);
 };

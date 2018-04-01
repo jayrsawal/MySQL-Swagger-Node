@@ -2,19 +2,24 @@
 
 var request = require("request");
 
-exports.getWindowHeight = function(args, res, next) {
+exports.getTinyUrl = function(args, res, next) {
   /**
   * Returns the height of a given url
   *
   * returns json
   **/
   var url = args.url.value;
-  request(url, (error, response, body) => {
+  request("http://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
   	if(error) {
   		res.end();
   	} else {
 	  	res.setHeader('Content-Type', 'application/json');
-	    res.end(JSON.stringify({height: h}));
+	  	let data = {
+	  		"original": url,
+	  		"full_tiny": body, 
+	  	};
+	  	data["hash"] = body.replace("http://tinyurl.com/", "");
+	    res.end(JSON.stringify(data));
   	}
   });
 }

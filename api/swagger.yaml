@@ -22,13 +22,13 @@ tags:
 schemes:
 - "http"
 paths:
-  /helper/window_height:
+  /helper/tinyurl:
     get:
       tags:
       - "Helper"
-      summary: "Returns the height of a given url"
-      description: "IFrames do not allow CORS on client side, use api to get height"
-      operationId: "window_height"
+      summary: "Returns a tinyurl version of a url"
+      description: "Loop around for CORS on client side requests"
+      operationId: "tinyurl"
       produces:
         - "application/json"
       parameters: 
@@ -36,7 +36,7 @@ paths:
         name: url
         required: true
         type: string
-        description: URL of the window to measure height
+        description: URL to be tinified
       responses:
         200:
           description: "successful operation"
