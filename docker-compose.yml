@@ -1,0 +1,11 @@
+version: '3'
+services:
+  api:
+    build: MySQL-Swagger-Node
+    ports:
+      - "8080:8080"
+
+  dme:
+    build: depressing.me
+    ports:
+      - "8081:3000"
